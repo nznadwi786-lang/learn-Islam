@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Islam - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <!-- گوگل فونٹس کا لنک (اردو اور عربی کو ہر کمپیوٹر/موبائل پر خوبصورت دکھانے کے لیے) -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Noto+Nastaliq Urdu:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #eef2f3;
@@ -115,7 +116,7 @@
         }
 
         body:lang(ur) .container p {
-            line-height: 2.3; /* اردو نستعلیق کے لیے لائن کی دوری بہتر کی گئی ہے */
+            line-height: 2.3;
         }
 
         .features-grid {
@@ -279,7 +280,6 @@
             font-size: 14px;
         }
 
-        /* موبائل اسکرینز کے لیے خصوصی رسپونسیو سیٹ اپ (Responsive Design) */
         @media (max-width: 600px) {
             h1 { font-size: 26px; padding: 15px; }
             .navbar a { padding: 8px 12px; margin: 0 2px; font-size: 14px; }
@@ -347,6 +347,8 @@
     <div class="contact-section" id="contact">
         <h2 id="contact-title">Contact Us</h2>
         <form action="https://formsubmit.co/Nznadwi786@gmail.com" method="POST">
+            <!-- یہ اہم ترین لائن ہے جو فارم سبمٹ کے بعد واپس اسی لائیو پیج پر لائے گی -->
+            <input type="hidden" name="_next" value="https://nznadwi786-lang.github.io/learn-Islam/">
             <div class="form-group">
                 <label id="lbl-name" for="name">Full Name</label>
                 <input type="text" id="name" name="name" required>
@@ -405,7 +407,7 @@
                 card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.",
                 card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.",
                 aboutTitle: "رؤيتنا ورسالتنا",
-                aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكائيمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.",
+                aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.",
                 quote: '"خَيرُكُم مَن تَعَلَّمَ القُرآنَ وعَلَّمَهُ."', auth: "— صحيح البخاري",
                 home: "الرئيسية", about: "حول الموقع", lessons: "الدروس", contact: "اتصل بنا", read: "اقرأ المزيد ←",
                 contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك",
