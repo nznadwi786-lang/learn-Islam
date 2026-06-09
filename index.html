@@ -338,7 +338,7 @@
         </div>
     </footer>
 
-    <script>
+   <script>
         function setActiveNav(element) {
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active-nav'));
@@ -368,4 +368,132 @@
 
         window.onscroll = function() {
             const topBtn = document.getElementById("topBtn");
-            if (document.body.
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { 
+                topBtn.style.display = "flex"; 
+            } else { 
+                topBtn.style.display = "none"; 
+            }
+        };
+        
+        function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+
+        const translations = {
+            en: {
+                title: "Learn Islam", heroT: "Islam for everyone", heroD: "Bridging the gap between classical Islamic intellect and modern digital access with comprehensive scholarly analysis.", heroBtn: "Start Learning",
+                welcomeTitle: "Welcome to Our Website", welcomeDesc: "This platform is dedicated to sharing authentic knowledge about Islam, its history, texts, and linguistic traditions for learners and researchers around the world.",
+                resTitle: "Featured Research", lesTitle: "Latest Lessons",
+                resCard1T: "Manuscript Analysis", resCard1D: "Critical verification, restoration techniques, and digital cataloging methodologies of ancient theological texts and classical Islamic manuscripts.",
+                resCard2T: "Linguistic Evolution", resCard2D: "An in-depth structural exploration of Arabic letters, phonetics development, and phonetic systems across classical and pre-Islamic history.",
+                card1T: "Quran & Sunnah", card1D: "Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.",
+                card2T: "Arabic Language & Literature", card2D: "Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.",
+                card3T: "History & Biography", card3D: "Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.",
+                aboutTitle: "About Our Mission", aboutDesc: "Our mission is to bridge the gap between classical Islamic intellect and modern digital access. We focus on academic research, manuscript preservation, and linguistic evolution to provide verified, text-based knowledge to globally active academic minds.",
+                quote: '"The best among you are those who learn the Quran and teach it."', auth: "— Sahih al-Bukhari",
+                home: "Home", research: "Featured Research", about: "About", lessons: "Lessons", contact: "Contact", readM: "Read More &rarr;", readR: "Read Research &rarr;",
+                contactTitle: "Contact Us", lblName: "Full Name", lblEmail: "Email Address", lblMsg: "Your Message", btnSubmit: "Send Message",
+                authTitle: "About the Founder", authBio: "Research Scholar specializing in Hadith sciences, classical manuscript preservation, and phonetic linguistic frameworks. Dedicated to structural digitization of Islamic education.",
+                footer: "&copy; 2026 Learn Islam. All Rights Reserved.", pPolicy: "Privacy Policy", tTerms: "Terms of Use",
+                sAr: "Articles", sPa: "Research Papers", sLe: "Academic Lessons"
+            },
+            ur: {
+                title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند تجزیاتی نقطہ نظر کے ساتھ کلاسیکی اسلامی دانش اور جدید ڈیجیٹل رسائی کے درمیان خلیج کو پاٹنا۔", heroBtn: "تعلیم کا آغاز کریں",
+                welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔",
+                resTitle: "خصوصی تحقیقی مقالات", lesTitle: "تازہ ترین اسباق",
+                resCard1T: "مخطوطات کا تجزیہ", resCard1D: "قدیم مذہبی متون اور کلاسیکی اسلامی مخطوطات کی مستند تصدیق، ان کی بحالی کی تکنیک، اور ڈیجیٹل کیٹلاگنگ کے طریقہ کار کا علمی احاطہ۔",
+                resCard2T: "لسانی ارتقا", resCard2D: "کلاسیکی اور قبل از اسلام کی تاریخ میں عربی حروف کی ساختی ساخت، صوتیات کے ارتقا، اور صوتیاتی نظام کی گہری علمی تحقیق۔",
+                card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔",
+                card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔",
+                card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔",
+                aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔",
+                quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری",
+                home: "ہوم", research: "تحقیقی مضامین", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", readR: "مقالہ پڑھیں &rarr;",
+                contactTitle: "رابطہ فارم", lblName: "پورا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں",
+                authTitle: "بانی کا تعارف", authBio: "ریسرچ اسکالر جو علوم الحدیث، قدیم مخطوطات کی حفاظت اور لسانی صوتیاتی نظام میں مہارت رکھتے ہیں۔ اسلامی تعلیم کی ڈیجیٹلائزیشن کے لیے کوشاں ہیں۔",
+                footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", pPolicy: "پرائیویسی پالیسی", tTerms: "استعمال کی شرائط",
+                sAr: "مضامین", sPa: "تحقیقی مقالات", sLe: "تعلیمی اسباق"
+            },
+            ar: {
+                title: "تعلّم الإسلام", heroT: "الإسلام للجميع", heroD: "جسر الفجوة بين الفكر الإسلامي الأصيل والوصول الرقمي الحديث من خلال التحليل العلمي الشامل والموثق.", heroBtn: "ابدأ التعلم",
+                welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مخصصة لمشاركة المعارف الصحيحة والمستندة حول الإسلام، تاريخه، نصوصه، وتقاليده اللغوية للدارسين والباحثين في جميع أنحاء العالم.",
+                resTitle: "البحوث المتميزة", lesTitle: "أحدث الدروس",
+                resCard1T: "تحقيق المخطوطات", resCard1D: "دراسة التحقق النقدي، وتقنيات الترميم، ومناهج الفهرسة الرقمية للنصوص الدينية القديمة والمخطوطات الإسلامية الكلاسيكية.",
+                resCard2T: "التطور اللغوي", resCard2D: "استكشاف بنيوي عميق للحروف العربية، وتطور الصوتيات، والأنظمة الصوتية عبر التاريخ الكلاسيكي وقبل الإسلام.",
+                card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.",
+                card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.",
+                card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.",
+                aboutTitle: "رؤيتنا ورسالتنا", aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.",
+                quote: '"خَيرُكُم مَن تَعَلَّمَ القُرآنَ وعَلَّمَهُ."', auth: "— صحيح البخاري",
+                home: "الرئيسية", research: "البحوث العلمية", about: "حول الموقع", lessons: "الدروس", contact: "اتصل بنا", readM: "اقرأ المزيد &rarr;", readR: "اقرأ البحث &rarr;",
+                contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة",
+                authTitle: "نبذة عن المؤسس", authBio: "باحث أكاديمي متخصص في علوم الحديث، وتحقيق Mخطوطات الكلاسيكية، والأطر اللغوية الصوتية. مكرس لرقمنة التعليم الإسلامي.",
+                footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام",
+                sAr: "المقالات", sPa: "الأوراق البحثية", sLe: "الدروس الأكاديمية"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const body = document.getElementById('content-body');
+            body.setAttribute('lang', lang);
+
+            document.getElementById('btn-en').className = (lang === 'en') ? 'active' : '';
+            document.getElementById('btn-ur').className = (lang === 'ur') ? 'active' : '';
+            document.getElementById('btn-ar').className = (lang === 'ar') ? 'active' : '';
+
+            document.getElementById('main-title').innerText = translations[lang].title;
+            document.getElementById('hero-title').innerText = translations[lang].heroT;
+            document.getElementById('hero-desc').innerText = translations[lang].heroD;
+            document.getElementById('hero-btn').innerText = translations[lang].heroBtn;
+            document.getElementById('welcome-title').innerText = translations[lang].welcomeTitle;
+            document.getElementById('welcome-desc').innerText = translations[lang].welcomeDesc;
+            document.getElementById('research-title').innerText = translations[lang].resTitle;
+            document.getElementById('lessons-title').innerText = translations[lang].lesTitle;
+            
+            document.getElementById('res-title-1').innerText = translations[lang].resCard1T;
+            document.getElementById('res-desc-1').innerText = translations[lang].resCard1D;
+            document.getElementById('res-title-2').innerText = translations[lang].resCard2T;
+            document.getElementById('res-desc-2').innerText = translations[lang].resCard2D;
+
+            document.getElementById('les-title-1').innerText = translations[lang].card1T;
+            document.getElementById('les-desc-1').innerText = translations[lang].card1D;
+            document.getElementById('les-title-2').innerText = translations[lang].card2T;
+            document.getElementById('les-desc-2').innerText = translations[lang].card2D;
+            document.getElementById('les-title-3').innerText = translations[lang].card3T;
+            document.getElementById('les-desc-3').innerText = translations[lang].card3D;
+
+            document.getElementById('about-title').innerText = translations[lang].aboutTitle;
+            document.getElementById('about-desc').innerText = translations[lang].aboutDesc;
+            document.getElementById('quote-text').innerText = translations[lang].quote;
+            document.getElementById('quote-auth').innerText = translations[lang].auth;
+
+            document.querySelector('.nav-home').innerText = translations[lang].home;
+            document.querySelector('.nav-research').innerText = translations[lang].research;
+            document.querySelector('.nav-about').innerText = translations[lang].about;
+            document.querySelector('.nav-lessons').innerText = translations[lang].lessons;
+            document.querySelector('.nav-contact').innerText = translations[lang].contact;
+
+            document.getElementById('contact-title').innerText = translations[lang].contactTitle;
+            document.getElementById('lbl-name').innerText = translations[lang].lblName;
+            document.getElementById('lbl-email').innerText = translations[lang].lblEmail;
+            document.getElementById('lbl-msg').innerText = translations[lang].lblMsg;
+            document.getElementById('btn-submit').innerText = translations[lang].btnSubmit;
+            
+            document.getElementById('author-title').innerText = translations[lang].authTitle;
+            document.getElementById('author-bio').innerText = translations[lang].authBio;
+
+            document.getElementById('stat-articles').innerText = translations[lang].sAr;
+            document.getElementById('stat-papers').innerText = translations[lang].sPa;
+            document.getElementById('stat-lessons').innerText = translations[lang].sLe;
+
+            document.getElementById('main-footer').innerHTML = translations[lang].footer;
+            document.getElementById('link-privacy').innerText = translations[lang].pPolicy;
+            document.getElementById('link-terms').innerText = translations[lang].tTerms;
+
+            document.getElementById('rm-res1').innerHTML = translations[lang].readR;
+            document.getElementById('rm-res2').innerHTML = translations[lang].readR;
+            document.getElementById('rm-les1').innerHTML = translations[lang].readM;
+            document.getElementById('rm-les2').innerHTML = translations[lang].readM;
+            document.getElementById('rm-les3').innerHTML = translations[lang].readM;
+        }
+    </script>
+</body>
+</html>
