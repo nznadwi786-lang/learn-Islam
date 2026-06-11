@@ -51,7 +51,7 @@
         #topBtn { position: fixed; bottom: 20px; right: 20px; background-color: var(--primary-color); color: white; border: none; padding: 12px 18px; border-radius: 5px; cursor: pointer; display: none; z-index: 99; }
     </style>
 </head>
-<body id="content-body" lang="en">
+    <body id="content-body" lang="en">
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Learn Islam</a>
@@ -92,7 +92,8 @@
         <div class="grid" id="lessons-section">
             <div class="card search-item">
                 <div><h3 id="les-title-1">Quran & Sunnah</h3><p id="les-desc-1">Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.</p></div>
-                <a href="#" id="rm-les1" style="color: var(--accent-color); text-decoration: none; margin-top: 15px; font-weight: bold;">Read More &rarr;</a>
+                <!-- یہاں لنک پکا ڈال دیا گیا ہے -->
+                <a href="https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing" id="rm-les1" target="_blank" style="color: var(--accent-color); text-decoration: none; margin-top: 15px; font-weight: bold;">Read More &rarr;</a>
             </div>
             <div class="card search-item">
                 <div><h3 id="les-title-2">Arabic Language & Literature</h3><p id="les-desc-2">Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.</p></div>
@@ -136,7 +137,7 @@
         <p id="main-footer">&copy; 2026 Learn Islam. All Rights Reserved.</p>
         <div style="margin-top: 10px;"><a href="#" id="link-privacy">Privacy Policy</a> | <a href="#" id="link-terms">Terms of Use</a></div>
     </footer>
-    <script>
+   <script>
         function setActiveNav(element) { const navLinks = document.querySelectorAll('nav a'); navLinks.forEach(link => link.classList.remove('active-nav')); element.classList.add('active-nav'); }
         function searchSite() { let input = document.getElementById('search-input').value.toLowerCase(); let items = document.getElementsByClassName('search-item'); for (let i = 0; i < items.length; i++) { if (!items[i].innerHTML.toLowerCase().includes(input)) { items[i].style.display = "none"; } else { items[i].style.display = "block"; } } }
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
@@ -151,7 +152,7 @@
                 footer: "&copy; 2026 Learn Islam. All Rights Reserved.", pPolicy: "Privacy Policy", tTerms: "Terms of Use", sAr: "Articles", sLe: "Academic Lessons"
             },
             ur: {
-                title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", home: "ہوم", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", contactTitle: "رابطہ فارم", lblName: "پیغام بھیجنے والے کا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", 
+                title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف تھے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", home: "ہوم", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", contactTitle: "رابطہ فارم", lblName: "پیغام بھیجنے والے کا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", 
                 authTitle: "بانی کا تعارف: نصر ظہور ندوی", 
                 authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جھود المستشرقین فی السنة وعلومها سلبا و ايجابا' پیش کیا۔ دارالعلوم ندوۃ العلماء میں علوم نحو کی تدریسی خدمت انجام دی اور فی الحال لکھنؤ یونیورسٹی میں پی ایچ ڈی اسکالر ہیں۔", 
                 footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", pPolicy: "پرائیویسی پالیسی", tTerms: "استعمال کی شرائط", sAr: "مضامین", sLe: "تعلیمی اسباق"
@@ -180,7 +181,7 @@
             document.getElementById('main-footer').innerHTML = translations[lang].footer; document.getElementById('link-privacy').innerText = translations[lang].pPolicy; document.getElementById('link-terms').innerText = translations[lang].tTerms;
             document.getElementById('rm-les1').innerHTML = translations[lang].readM; document.getElementById('rm-les2').innerHTML = translations[lang].readM; document.getElementById('rm-les3').innerHTML = translations[lang].readM;
 
-            // اب یہ لنک "القرآن والسنۃ" کے کارڈ پر بالکل درست سیٹ ہو چکا ہے
+            // یہ بیک اپ فنکشن ہے جو زبان بدلنے پر بھی لنک اور ٹارگٹ کو درست رکھتا ہے
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         }
