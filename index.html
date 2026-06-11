@@ -5,67 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="main-title">Learn Islam</title>
     <style>
-        :root { --bg-color: #fcfdfc; --text-color: #2d3748; --primary-color: #1b4d3e; --accent-color: #c5a059; --card-bg: #ffffff; --nav-bg: #ffffff; --hero-overlay: rgba(27, 77, 62, 0.85); --border-color: #e2e8f0; }
-        [data-theme="dark"] { --bg-color: #121212; --text-color: #e2e8f0; --primary-color: #2d3748; --accent-color: #f6ad55; --card-bg: #1a202c; --nav-bg: #1a202c; --hero-overlay: rgba(18, 18, 18, 0.9); --border-color: #4a5568; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
-        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        header { background-color: var(--nav-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
-        nav a { color: var(--text-color); text-decoration: none; margin-left: 20px; padding: 6px 12px; border-radius: 4px; font-weight: 500; }
+        :root { --bg-color: #f8fafc; --text-color: #1e293b; --primary-color: #1b4d3e; --accent-color: #c5a059; --card-bg: #ffffff; --nav-bg: #ffffff; --hero-overlay: rgba(27, 77, 62, 0.85); --border-color: #e2e8f0; }
+        [data-theme="dark"] { --bg-color: #0f172a; --text-color: #f1f5f9; --primary-color: #334155; --accent-color: #f59e0b; --card-bg: #1e293b; --nav-bg: #1e293b; --hero-overlay: rgba(15, 23, 42, 0.9); --border-color: #334155; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
+        
+        /* ہیڈر کو بالکل منظم اور خوبصورت بنایا گیا ہے */
+        header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+        .nav-container { display: flex; flex-direction: column; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; gap: 15px; }
+        
+        /* لوگو کو بالکل سینٹر (درمیان) میں لانے کی سیٹنگ */
+        .logo { font-size: 28px; font-weight: 800; color: var(--primary-color); text-decoration: none; letter-spacing: 0.5px; text-align: center; }
+        
+        .nav-menu-box { display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border-color); padding-top: 12px; }
+        nav { display: flex; gap: 10px; justify-content: center; }
+        nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; }
         nav a.active-nav { background-color: var(--primary-color); color: white !important; }
-        .hero { position: relative; background-image: url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 120px 20px; text-align: center; }
+        
+        .controls { display: flex; gap: 8px; }
+        .controls button { padding: 6px 14px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 6px; font-weight: 600; font-size: 14px; }
+        .controls button.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+        
+        /* ہیرو سیکشن اور باقی صفحات کی ترتیب */
+        .hero { position: relative; background-image: url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 20px; text-align: center; }
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--hero-overlay); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; max-width: 850px; margin: 0 auto; }
-        .hero h1 { font-size: 42px; margin-bottom: 20px; font-weight: 700; }
-        .hero p { font-size: 19px; margin-bottom: 30px; font-weight: 400; }
-        .btn { background-color: var(--accent-color); color: white; padding: 12px 28px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .controls { display: flex; gap: 8px; align-items: center; }
-        .controls button { padding: 6px 12px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 4px; font-weight: 600; }
-        .controls button.active { background-color: var(--primary-color); color: white; }
-        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .search-box { margin-bottom: 35px; display: flex; }
-        .search-box input { width: 100%; padding: 12px 20px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); border-radius: 6px; font-size: 16px; }
-        .section-title { margin: 50px 0 20px; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 8px; font-size: 28px; scroll-margin-top: 90px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background-color: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
-        .card h3 { margin-bottom: 15px; color: var(--primary-color); font-size: 20px; }
-        .quote-section { background-color: var(--card-bg); border-left: 5px solid var(--primary-color); padding: 30px; margin: 40px 0; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); scroll-margin-top: 90px; }
-        .quote-text { font-size: 22px; font-style: italic; font-weight: 600; color: var(--primary-color); }
-        .quote-auth { text-align: right; margin-top: 10px; font-weight: bold; }
-        .author-box, .contact-section { background-color: var(--card-bg); padding: 30px; border-radius: 8px; margin-top: 30px; border: 1px solid var(--border-color); scroll-margin-top: 90px; }
-        .author-box h3 { color: var(--primary-color); margin-bottom: 10px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 4px; }
-        .stats { display: flex; justify-content: space-around; margin: 40px 0; text-align: center; }
-        .stat-item { background: var(--card-bg); padding: 20px; border-radius: 8px; width: 30%; border: 1px solid var(--border-color); }
-        .stat-item h4 { font-size: 24px; color: var(--primary-color); }
-        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 30px 20px; margin-top: 60px; }
-        footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 46px; margin-bottom: 20px; font-weight: 800; }
+        .hero p { font-size: 20px; margin-bottom: 35px; font-weight: 400; opacity: 0.95; }
+        
+        .btn { background-color: var(--accent-color); color: white; padding: 12px 32px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .main-content { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        
+        .search-box { margin-bottom: 40px; }
+        .search-box input { width: 100%; padding: 14px 24px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); border-radius: 8px; font-size: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        
+        .section-title { margin: 60px 0 25px; color: var(--primary-color); border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; font-size: 30px; font-weight: 700; scroll-margin-top: 140px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background-color: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { margin-bottom: 15px; color: var(--primary-color); font-size: 22px; font-weight: 700; }
+        .card p { color: #64748b; font-size: 15px; }
+        [data-theme="dark"] .card p { color: #94a3b8; }
+        
+        .quote-section { background-color: var(--card-bg); border-left: 6px solid var(--primary-color); padding: 35px; margin: 50px 0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid var(--border-color); }
+        .quote-text { font-size: 24px; font-style: italic; font-weight: 600; color: var(--primary-color); text-align: center; }
+        .quote-auth { text-align: right; margin-top: 15px; font-weight: bold; color: var(--accent-color); }
+        
+        .author-box, .contact-section { background-color: var(--card-bg); padding: 40px; border-radius: 12px; margin-top: 40px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); scroll-margin-top: 140px; }
+        .author-box p { font-size: 16.5px; text-align: justify; }
+        
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px; font-size: 15px; }
+        
+        .stats { display: flex; justify-content: space-around; margin: 50px 0; gap: 20px; }
+        .stat-item { background: var(--card-bg); padding: 25px; border-radius: 10px; width: 48%; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.01); }
+        .stat-item h4 { font-size: 24px; color: var(--primary-color); font-weight: 700; margin-bottom: 5px; }
+        .stat-item p { font-size: 20px; font-weight: bold; color: var(--accent-color); }
+        
+        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 35px 20px; margin-top: 80px; font-size: 15px; }
+        footer a { color: var(--accent-color); text-decoration: none; margin: 0 12px; font-weight: 600; }
+        
+        /* ٹیبلٹ اور موبائل کے لیے رسپانسو سیٹنگز */
+        @media (max-width: 768px) {
+            .nav-menu-box { flex-direction: column; gap: 15px; }
+            nav { flex-wrap: wrap; }
+            .stats { flex-direction: column; }
+            .stat-item { width: 100%; }
+            .hero h1 { font-size: 32px; }
+        }
+        
         [lang="ur"] *, [lang="ar"] * { direction: rtl; text-align: right; }
-        [lang="ur"] .nav-container, [lang="ar"] .nav-container { flex-direction: row-reverse; }
-        [lang="ur"] nav a, [lang="ar"] nav a { margin-right: 20px; margin-left: 0; }
-        [lang="ur"] .quote-section, [lang="ar"] .quote-section { border-left: none; border-right: 5px solid var(--primary-color); }
+        [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: row-reverse; }
+        [lang="ur"] nav a, [lang="ar"] nav a { margin-right: 10px; margin-left: 0; }
+        [lang="ur"] .quote-section, [lang="ar"] .quote-section { border-left: none; border-right: 6px solid var(--primary-color); }
         [lang="ur"] .quote-auth, [lang="ar"] .quote-auth { text-align: left; }
+        @media (max-width: 768px) {
+            [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: column; }
+        }
         #topBtn { position: fixed; bottom: 20px; right: 20px; background-color: var(--primary-color); color: white; border: none; padding: 12px 18px; border-radius: 5px; cursor: pointer; display: none; z-index: 99; }
     </style>
 </head>
-    <body id="content-body" lang="en">
+<body id="content-body" lang="en">
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Learn Islam</a>
-            <nav>
-                <a href="#" class="nav-home active-nav" onclick='setActiveNav(this)'>Home</a>
-                <a href="#lessons-section" class="nav-lessons" onclick='setActiveNav(this)'>Lessons</a>
-                <a href="#about-section" class="nav-about" onclick='setActiveNav(this)'>About</a>
-                <a href="#contact-section" class="nav-contact" onclick='setActiveNav(this)'>Contact</a>
-            </nav>
-            <div class="controls">
-                <button id="btn-en" class="active" onclick="changeLanguage('en')">EN</button>
-                <button id="btn-ur" onclick="changeLanguage('ur')">اُردو</button>
-                <button id="btn-ar" onclick="changeLanguage('ar')">العربية</button>
-                <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+            
+            <div class="nav-menu-box">
+                <nav>
+                    <a href="#" class="nav-home active-nav" onclick='setActiveNav(this)'>Home</a>
+                    <a href="#lessons-section" class="nav-lessons" onclick='setActiveNav(this)'>Lessons</a>
+                    <a href="#about-section" class="nav-about" onclick='setActiveNav(this)'>About</a>
+                    <a href="#contact-section" class="nav-contact" onclick='setActiveNav(this)'>Contact</a>
+                </nav>
+                <div class="controls">
+                    <button id="btn-en" class="active" onclick="changeLanguage('en')">EN</button>
+                    <button id="btn-ur" onclick="changeLanguage('ur')">اُردو</button>
+                    <button id="btn-ar" onclick="changeLanguage('ar')">العربية</button>
+                    <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+                </div>
             </div>
         </div>
     </header>
@@ -92,16 +131,15 @@
         <div class="grid" id="lessons-section">
             <div class="card search-item">
                 <div><h3 id="les-title-1">Quran & Sunnah</h3><p id="les-desc-1">Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.</p></div>
-                <!-- یہاں لنک پکا ڈال دیا گیا ہے -->
-                <a href="https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing" id="rm-les1" target="_blank" style="color: var(--accent-color); text-decoration: none; margin-top: 15px; font-weight: bold;">Read More &rarr;</a>
+                <a href="https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing" id="rm-les1" target="_blank" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold; font-size: 15px; display: inline-block;">Read More &rarr;</a>
             </div>
             <div class="card search-item">
                 <div><h3 id="les-title-2">Arabic Language & Literature</h3><p id="les-desc-2">Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.</p></div>
-                <a href="#" id="rm-les2" style="color: var(--accent-color); text-decoration: none; margin-top: 15px; font-weight: bold;">Read More &rarr;</a>
+                <a href="#" id="rm-les2" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold; font-size: 15px; display: inline-block;">Read More &rarr;</a>
             </div>
             <div class="card search-item">
                 <div><h3 id="les-title-3">History & Biography</h3><p id="les-desc-3">Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.</p></div>
-                <a href="#" id="rm-les3" style="color: var(--accent-color); text-decoration: none; margin-top: 15px; font-weight: bold;">Read More &rarr;</a>
+                <a href="#" id="rm-les3" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold; font-size: 15px; display: inline-block;">Read More &rarr;</a>
             </div>
         </div>
 
@@ -111,7 +149,7 @@
         </div>
         <div class="quote-section search-item"><div id="quote-text" class="quote-text">"The best among you are those who learn the Quran and teach it."</div><div id="quote-auth" class="quote-auth">— Sahih al-Bukhari</div></div>
         
-        <div class="author-box search-item">
+        <div class="author-box search-item" id="founder-section">
             <h3 id="author-title">About the Founder: Nasar Zahoor Nadwi</h3>
             <p id="author-bio">Research Scholar specializing in Hadith sciences, classical manuscript preservation, and phonetic linguistic frameworks. Dedicated to structural digitization of Islamic education.</p>
         </div>
@@ -127,7 +165,7 @@
                 <div class="form-group"><label id="lbl-name">Full Name</label><input type="text" required></div>
                 <div class="form-group"><label id="lbl-email">Email Address</label><input type="email" required></div>
                 <div class="form-group"><label id="lbl-msg">Your Message</label><textarea rows="5" required></textarea></div>
-                <div class="form-group"><button type="submit" id="btn-submit" class="btn">Send Message</button></div>
+                <button type="submit" id="btn-submit" class="btn">Send Message</button>
             </form>
         </div>
     </main>
@@ -137,7 +175,7 @@
         <p id="main-footer">&copy; 2026 Learn Islam. All Rights Reserved.</p>
         <div style="margin-top: 10px;"><a href="#" id="link-privacy">Privacy Policy</a> | <a href="#" id="link-terms">Terms of Use</a></div>
     </footer>
-   <script>
+    <script>
         function setActiveNav(element) { const navLinks = document.querySelectorAll('nav a'); navLinks.forEach(link => link.classList.remove('active-nav')); element.classList.add('active-nav'); }
         function searchSite() { let input = document.getElementById('search-input').value.toLowerCase(); let items = document.getElementsByClassName('search-item'); for (let i = 0; i < items.length; i++) { if (!items[i].innerHTML.toLowerCase().includes(input)) { items[i].style.display = "none"; } else { items[i].style.display = "block"; } } }
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
@@ -152,7 +190,7 @@
                 footer: "&copy; 2026 Learn Islam. All Rights Reserved.", pPolicy: "Privacy Policy", tTerms: "Terms of Use", sAr: "Articles", sLe: "Academic Lessons"
             },
             ur: {
-                title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف تھے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", home: "ہوم", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", contactTitle: "رابطہ فارم", lblName: "پیغام بھیجنے والے کا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", 
+                title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", home: "ہوم", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", contactTitle: "رابطہ فارم", lblName: "پیغام بھیجنے والے کا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", 
                 authTitle: "بانی کا تعارف: نصر ظہور ندوی", 
                 authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جھود المستشرقین فی السنة وعلومها سلبا و ايجابا' پیش کیا۔ دارالعلوم ندوۃ العلماء میں علوم نحو کی تدریسی خدمت انجام دی اور فی الحال لکھنؤ یونیورسٹی میں پی ایچ ڈی اسکالر ہیں۔", 
                 footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", pPolicy: "پرائیویسی پالیسی", tTerms: "استعمال کی شرائط", sAr: "مضامین", sLe: "تعلیمی اسباق"
@@ -181,10 +219,16 @@
             document.getElementById('main-footer').innerHTML = translations[lang].footer; document.getElementById('link-privacy').innerText = translations[lang].pPolicy; document.getElementById('link-terms').innerText = translations[lang].tTerms;
             document.getElementById('rm-les1').innerHTML = translations[lang].readM; document.getElementById('rm-les2').innerHTML = translations[lang].readM; document.getElementById('rm-les3').innerHTML = translations[lang].readM;
 
-            // یہ بیک اپ فنکشن ہے جو زبان بدلنے پر بھی لنک اور ٹارگٹ کو درست رکھتا ہے
+            // یہ فنکشن لنکس کو ہمیشہ ہوم پیج پر برقرار رکھتا ہے
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         }
+        
+        // پیج لوڈ ہوتے ہی ڈیفالٹ لنک اوپن کرنے کا فنکشن (پہلی بار کے لیے پکا حل)
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
+            document.getElementById('rm-les1').setAttribute('target', '_blank');
+        });
     </script>
 </body>
 </html>
