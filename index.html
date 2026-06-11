@@ -8,39 +8,41 @@
         :root { --bg-color: #f8fafc; --text-color: #1e293b; --primary-color: #1b4d3e; --accent-color: #c5a059; --card-bg: #ffffff; --nav-bg: #ffffff; --hero-overlay: rgba(27, 77, 62, 0.85); --border-color: #e2e8f0; }
         [data-theme="dark"] { --bg-color: #0f172a; --text-color: #f1f5f9; --primary-color: #334155; --accent-color: #f59e0b; --card-bg: #1e293b; --nav-bg: #1e293b; --hero-overlay: rgba(15, 23, 42, 0.9); --border-color: #334155; }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
         
-        /* ہیڈر کو بالکل منظم اور خوبصورت بنایا گیا ہے */
-        header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
-        .nav-container { display: flex; flex-direction: column; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; gap: 15px; }
+        /* ہیڈر کو بالکل سیدھا اور منظم کرنے کا نیا ڈیزائن */
+        header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); width: 100%; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; text-align: center; }
         
-        /* لوگو کو بالکل سینٹر (درمیان) میں لانے کی سیٹنگ */
-        .logo { font-size: 28px; font-weight: 800; color: var(--primary-color); text-decoration: none; letter-spacing: 0.5px; text-align: center; }
+        .logo { font-size: 30px; font-weight: 800; color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 15px; letter-spacing: 0.5px; }
         
-        .nav-menu-box { display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border-color); padding-top: 12px; }
-        nav { display: flex; gap: 10px; justify-content: center; }
-        nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+        /* مینو اور بٹنز کو ایک لائن میں لانے کا باکس */
+        .nav-menu-box { display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border-color); padding-top: 15px; }
+        
+        nav { display: flex; gap: 5px; align-items: center; }
+        nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; display: inline-block; }
+        nav a:hover { background-color: rgba(27, 77, 62, 0.05); }
         nav a.active-nav { background-color: var(--primary-color); color: white !important; }
         
-        .controls { display: flex; gap: 8px; }
-        .controls button { padding: 6px 14px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 6px; font-weight: 600; font-size: 14px; }
+        .controls { display: flex; gap: 8px; align-items: center; }
+        .controls button { padding: 8px 14px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block; }
         .controls button.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
         
-        /* ہیرو سیکشن اور باقی صفحات کی ترتیب */
+        /* ہیرو سیکشن */
         .hero { position: relative; background-image: url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 20px; text-align: center; }
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--hero-overlay); z-index: 1; }
         .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
         .hero h1 { font-size: 46px; margin-bottom: 20px; font-weight: 800; }
-        .hero p { font-size: 20px; margin-bottom: 35px; font-weight: 400; opacity: 0.95; }
+        .hero p { font-size: 20px; margin-bottom: 35px; font-weight: 400; line-height: 1.6; }
         
         .btn { background-color: var(--accent-color); color: white; padding: 12px 32px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .main-content { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
         
         .search-box { margin-bottom: 40px; }
-        .search-box input { width: 100%; padding: 14px 24px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); border-radius: 8px; font-size: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .search-box input { width: 100%; padding: 14px 24px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); border-radius: 8px; font-size: 16px; }
         
-        .section-title { margin: 60px 0 25px; color: var(--primary-color); border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; font-size: 30px; font-weight: 700; scroll-margin-top: 140px; }
+        .section-title { margin: 60px 0 25px; color: var(--primary-color); border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; font-size: 30px; font-weight: 700; scroll-margin-top: 160px; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background-color: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
@@ -48,11 +50,11 @@
         .card p { color: #64748b; font-size: 15px; }
         [data-theme="dark"] .card p { color: #94a3b8; }
         
-        .quote-section { background-color: var(--card-bg); border-left: 6px solid var(--primary-color); padding: 35px; margin: 50px 0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid var(--border-color); }
+        .quote-section { background-color: var(--card-bg); border-left: 6px solid var(--primary-color); padding: 35px; margin: 50px 0; border-radius: 8px; border: 1px solid var(--border-color); }
         .quote-text { font-size: 24px; font-style: italic; font-weight: 600; color: var(--primary-color); text-align: center; }
         .quote-auth { text-align: right; margin-top: 15px; font-weight: bold; color: var(--accent-color); }
         
-        .author-box, .contact-section { background-color: var(--card-bg); padding: 40px; border-radius: 12px; margin-top: 40px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); scroll-margin-top: 140px; }
+        .author-box, .contact-section { background-color: var(--card-bg); padding: 40px; border-radius: 12px; margin-top: 40px; border: 1px solid var(--border-color); scroll-margin-top: 160px; }
         .author-box p { font-size: 16.5px; text-align: justify; }
         
         .form-group { margin-bottom: 25px; }
@@ -60,25 +62,28 @@
         .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px; font-size: 15px; }
         
         .stats { display: flex; justify-content: space-around; margin: 50px 0; gap: 20px; }
-        .stat-item { background: var(--card-bg); padding: 25px; border-radius: 10px; width: 48%; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.01); }
-        .stat-item h4 { font-size: 24px; color: var(--primary-color); font-weight: 700; margin-bottom: 5px; }
+        .stat-item { background: var(--card-bg); padding: 25px; border-radius: 10px; width: 48%; border: 1px solid var(--border-color); text-align: center; }
+        .stat-item h4 { font-size: 24px; color: var(--primary-color); font-weight: 700; }
         .stat-item p { font-size: 20px; font-weight: bold; color: var(--accent-color); }
         
         footer { background-color: var(--primary-color); color: white; text-align: center; padding: 35px 20px; margin-top: 80px; font-size: 15px; }
         footer a { color: var(--accent-color); text-decoration: none; margin: 0 12px; font-weight: 600; }
         
-        /* ٹیبلٹ اور موبائل کے لیے رسپانسو سیٹنگز */
+        /* موبائل اور ٹیبلٹ کے لیے مینو کو خودکار سیدھا کرنے کا نظام */
         @media (max-width: 768px) {
-            .nav-menu-box { flex-direction: column; gap: 15px; }
-            nav { flex-wrap: wrap; }
+            .nav-menu-box { flex-direction: column-reverse; gap: 15px; padding-top: 10px; }
+            nav { justify-content: center; width: 100%; flex-wrap: wrap; gap: 2px; }
+            nav a { padding: 6px 10px; font-size: 14px; }
+            .controls { justify-content: center; width: 100%; }
             .stats { flex-direction: column; }
             .stat-item { width: 100%; }
             .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
         }
         
         [lang="ur"] *, [lang="ar"] * { direction: rtl; text-align: right; }
         [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: row-reverse; }
-        [lang="ur"] nav a, [lang="ar"] nav a { margin-right: 10px; margin-left: 0; }
+        [lang="ur"] nav a, [lang="ar"] nav a { margin-right: 0; margin-left: 0; }
         [lang="ur"] .quote-section, [lang="ar"] .quote-section { border-left: none; border-right: 6px solid var(--primary-color); }
         [lang="ur"] .quote-auth, [lang="ar"] .quote-auth { text-align: left; }
         @media (max-width: 768px) {
@@ -199,7 +204,7 @@
                 title: "تعلّم الإسلام", heroT: "الإسلام للجميع", heroD: "جسر الفجوة بين الفكر الإسلامي الأصيل والوصول الرقمي الحديث من خلال التحليل العلمي الشامل والموثق.", heroBtn: "ابدأ التعلم", welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مخصصة لمشاركة المعارف الصحيحة والمستندة حول الإسلام، تاريخه، نصوصه، وتاريخه اللغوي للدارسين والباحثين في جميع أنحاء العالم.", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.", card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.", card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.", aboutTitle: "رؤيتنا ورسالتنا", aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.", quote: '"خَيرُكُم مَن تَعَلَّمَ القُرآنَ وعَلَّمَهُ."', auth: "— صحيح البخاري", home: "الرئيسية", about: "حول الموقع", lessons: "الدروس", contact: "اتصل بنا", readM: "اقرأ المزيد &rarr;", contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة", 
                 authTitle: "نبذة عن المؤسس: نصر ظهور الندوي", 
                 authBio: "تلقى تعليمه في القرآن والحديث والفقه والأدب في معهد دار العلوم ندوة العلماء الشهير عالمياً بلكناؤ، وتخصص في علوم الحديث الشريف. عُيّن باحثاً ومحققاً في ندوة العلماء، وقدّم أطروحة علمية بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. تولى الخدمة التدريسية لعلوم النحو في دار العلوم ندوة العلماء، وهو حالياً باحث دكتوراه في جامعة لكناؤ.", 
-                footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام", sAr: "المقالات", sLe: "الدروس الأكاديمية"
+                footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام", sAr: "المقالات", sLe: "الأوراق البحثية"
             }
         };
 
@@ -224,7 +229,7 @@
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         }
         
-        // پیج لوڈ ہوتے ہی ڈیفالٹ لنک اوپن کرنے کا فنکشن (پہلی بار کے لیے پکا حل)
+        // پیج لوڈ ہوتے ہی ڈیفالٹ لنک اوپن کرنے کا فنکشن
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
