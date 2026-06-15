@@ -11,15 +11,11 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
         
-        /* ہیڈر کو بالکل سیدھا اور منظم کرنے کا نیا ڈیزائن */
         header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); width: 100%; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; text-align: center; }
-        
         .logo { font-size: 30px; font-weight: 800; color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 15px; letter-spacing: 0.5px; }
         
-        /* مینو اور بٹنز کو ایک لائن میں لانے کا باکس */
         .nav-menu-box { display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border-color); padding-top: 15px; }
-        
         nav { display: flex; gap: 5px; align-items: center; }
         nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; display: inline-block; }
         nav a:hover { background-color: rgba(27, 77, 62, 0.05); }
@@ -29,7 +25,6 @@
         .controls button { padding: 8px 14px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-block; }
         .controls button.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
         
-        /* ہیرو سیکشن */
         .hero { position: relative; background-image: url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: white; padding: 140px 20px; text-align: center; }
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--hero-overlay); z-index: 1; }
         .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
@@ -57,10 +52,13 @@
         .author-box, .contact-section { background-color: var(--card-bg); padding: 40px; border-radius: 12px; margin-top: 40px; border: 1px solid var(--border-color); scroll-margin-top: 160px; }
         .author-box p { font-size: 16.5px; text-align: justify; }
         
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 15px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px; font-size: 15px; }
-        
+        /* رابطہ فارم کو ترتیب میں لانے کا نیا اور خوبصورت اسٹائل */
+        .contact-section form { display: flex; flex-direction: column; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; width: 100%; text-align: inherit; }
+        .form-group label { font-weight: 600; font-size: 15px; color: var(--text-color); }
+        .form-group input, .form-section textarea { width: 100%; padding: 12px 15px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px; font-size: 15px; }
+        .contact-section .btn { align-self: flex-start; background-color: var(--primary-color); }
+
         .stats { display: flex; justify-content: space-around; margin: 50px 0; gap: 20px; }
         .stat-item { background: var(--card-bg); padding: 25px; border-radius: 10px; width: 48%; border: 1px solid var(--border-color); text-align: center; }
         .stat-item h4 { font-size: 24px; color: var(--primary-color); font-weight: 700; }
@@ -69,7 +67,6 @@
         footer { background-color: var(--primary-color); color: white; text-align: center; padding: 35px 20px; margin-top: 80px; font-size: 15px; }
         footer a { color: var(--accent-color); text-decoration: none; margin: 0 12px; font-weight: 600; }
         
-        /* موبائل اور ٹیبلٹ کے لیے مینو کو خودکار سیدھا کرنے کا نظام */
         @media (max-width: 768px) {
             .nav-menu-box { flex-direction: column-reverse; gap: 15px; padding-top: 10px; }
             nav { justify-content: center; width: 100%; flex-wrap: wrap; gap: 2px; }
@@ -79,13 +76,15 @@
             .stat-item { width: 100%; }
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 16px; }
+            .contact-section .btn { width: 100%; }
         }
         
+        /* دائیں سے بائیں (RTL) زبانوں کے لیے ہیڈنگ اور ٹیکسٹ الائنمنٹ */
         [lang="ur"] *, [lang="ar"] * { direction: rtl; text-align: right; }
         [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: row-reverse; }
-        [lang="ur"] nav a, [lang="ar"] nav a { margin-right: 0; margin-left: 0; }
         [lang="ur"] .quote-section, [lang="ar"] .quote-section { border-left: none; border-right: 6px solid var(--primary-color); }
         [lang="ur"] .quote-auth, [lang="ar"] .quote-auth { text-align: left; }
+        [lang="ur"] .contact-section .btn, [lang="ar"] .contact-section .btn { align-self: flex-start; }
         @media (max-width: 768px) {
             [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: column; }
         }
@@ -96,7 +95,6 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Learn Islam</a>
-            
             <div class="nav-menu-box">
                 <nav>
                     <a href="#" class="nav-home active-nav" onclick='setActiveNav(this)'>Home</a>
@@ -113,7 +111,6 @@
             </div>
         </div>
     </header>
-
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -122,7 +119,6 @@
             <button id="hero-btn" class="btn" onclick="document.getElementById('welcome-title').scrollIntoView({behavior: 'smooth'});">Start Learning</button>
         </div>
     </section>
-
     <main class="main-content">
         <div class="search-box">
             <input type="text" id="search-input" onkeyup="searchSite()" placeholder="Search content...">
@@ -167,26 +163,58 @@
         <div class="contact-section" id="contact-section">
             <h3 id="contact-title">Contact Us</h3>
             <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                <div class="form-group"><label id="lbl-name">Full Name</label><input type="text" required></div>
-                <div class="form-group"><label id="lbl-email">Email Address</label><input type="email" required></div>
-                <div class="form-group"><label id="lbl-msg">Your Message</label><textarea rows="5" required></textarea></div>
+                <div class="form-group">
+                    <label id="lbl-name">Full Name</label>
+                    <input type="text" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px;" required>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-email">Email Address</label>
+                    <input type="email" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px;" required>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-msg">Your Message</label>
+                    <textarea rows="5" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px; font-family: inherit;" required></textarea>
+                </div>
                 <button type="submit" id="btn-submit" class="btn">Send Message</button>
             </form>
         </div>
     </main>
 
     <button id="topBtn" onclick="scrollToTop()">Top ↑</button>
+    
     <footer id="footer-section">
         <p id="main-footer">&copy; 2026 Learn Islam. All Rights Reserved.</p>
         <div style="margin-top: 10px;"><a href="#" id="link-privacy">Privacy Policy</a> | <a href="#" id="link-terms">Terms of Use</a></div>
     </footer>
+
+    <div id="database-content-box" style="max-width: 400px; margin: 40px auto; padding: 25px; border: 2px dashed #1b4d3e; border-radius: 12px; background-color: var(--card-bg); display: none; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 id="db-title" style="color: var(--primary-color); margin-bottom: 15px; font-size: 24px; font-weight: 700;"></h3>
+        <p id="db-content" style="font-size: 18px; line-height: 1.8; color: var(--text-color);"></p>
+    </div>
+
+    <div id="auth-container" style="max-width: 400px; margin: 40px auto; padding: 25px; ...">
+
+    <div id="auth-container" style="max-width: 400px; margin: 40px auto; padding: 25px; border: 1px solid var(--border-color); background-color: var(--card-bg); border-radius: 12px; font-family: sans-serif; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 id="auth-title" style="color: var(--primary-color); margin-bottom: 20px; font-size: 22px; font-weight: 700;">لاگ ان کریں</h3>
+        <input type="email" id="auth-email" placeholder="اپنا ای میل لکھیں" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px;"><br>
+        <input type="password" id="auth-password" placeholder="اپنا پاس ورڈ لکھیں" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); border-radius: 6px;"><br>
+        <button id="btn-login" style="padding: 10px 22px; margin: 8px 4px; background-color: #1b4d3e; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px;">لاگ ان</button>
+        <button id="btn-signup" style="padding: 10px 22px; margin: 8px 4px; background-color: #c5a059; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px;">نیا اکاؤنٹ بنائیں</button>
+        <p id="auth-message" style="color: red; margin-top: 15px; font-weight: bold; font-size: 14px;"></p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script>
+        // نیویگیشن، سرچ، اور تھیم کے پرانے فنکشنز
         function setActiveNav(element) { const navLinks = document.querySelectorAll('nav a'); navLinks.forEach(link => link.classList.remove('active-nav')); element.classList.add('active-nav'); }
         function searchSite() { let input = document.getElementById('search-input').value.toLowerCase(); let items = document.getElementsByClassName('search-item'); for (let i = 0; i < items.length; i++) { if (!items[i].innerHTML.toLowerCase().includes(input)) { items[i].style.display = "none"; } else { items[i].style.display = "block"; } } }
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
         window.onscroll = function() { const topBtn = document.getElementById("topBtn"); if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { topBtn.style.display = "flex"; } else { topBtn.style.display = "none"; } };
         function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
 
+        // زبان کا ڈیٹا (جس میں اب عربی کی تمام ہیڈنگز اور دائیں طرف کی سیٹنگز موجود ہیں)
         const translations = {
             en: {
                 title: "Learn Islam", heroT: "Islam for everyone", heroD: "Bridging the gap between classical Islamic intellect and modern digital access with comprehensive scholarly analysis.", heroBtn: "Start Learning", welcomeTitle: "Welcome to Our Website", welcomeDesc: "This platform is dedicated to sharing authentic knowledge about Islam, its history, texts, and linguistic traditions for learners and researchers around the world.", lesTitle: "Latest Lessons", card1T: "Quran & Sunnah", card1D: "Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.", card2T: "Arabic Language & Literature", card2D: "Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.", card3T: "History & Biography", card3D: "Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.", aboutTitle: "About Our Mission", aboutDesc: "Our mission is to bridge the gap between classical Islamic intellect and modern digital access. We focus on academic research, manuscript preservation, and linguistic evolution to provide verified, text-based knowledge to globally active academic minds.", quote: '"The best among you are those who learn the Quran and teach it."', auth: "— Sahih al-Bukhari", home: "Home", about: "About", lessons: "Lessons", contact: "Contact", readM: "Read More &rarr;", contactTitle: "Contact Us", lblName: "Full Name", lblEmail: "Email Address", lblMsg: "Your Message", btnSubmit: "Send Message", 
@@ -197,14 +225,14 @@
             ur: {
                 title: "اسلام سیکھیں", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", home: "ہوم", about: "ہمارے بارے میں", lessons: "دروس", contact: "رابطہ کریں", readM: "مطالعہ کریں &rarr;", contactTitle: "رابطہ فارم", lblName: "پیغام بھیجنے والے کا نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", 
                 authTitle: "بانی کا تعارف: نصر ظہور ندوی", 
-                authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جھود المستشرقین فی السنة وعلومها سلبا و ايجابا' پیش کیا۔ دارالعلوم ندوۃ العلماء میں علوم نحو کی تدریسی خدمت انجام دی اور فی الحال لکھنؤ یونیورسٹی میں پی ایچ ڈی اسکالر ہیں۔", 
-                footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", pPolicy: "پرائیویسی پالیسی", tTerms: "استعمال کی شرائط", sAr: "مضامین", sLe: "تعلیمی اسباق"
+                authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. تولى الخدمة التدريسية لعلوم النحو في دار العلوم ندوة العلماء، وهو حالياً باحث دكتوراه في جامعة لكناؤ.", 
+                footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام", sAr: "المقالات", sLe: "الأوراق البحثية"
             },
             ar: {
-                title: "تعلّم الإسلام", heroT: "الإسلام للجميع", heroD: "جسر الفجوة بين الفكر الإسلامي الأصيل والوصول الرقمي الحديث من خلال التحليل العلمي الشامل والموثق.", heroBtn: "ابدأ التعلم", welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مخصصة لمشاركة المعارف الصحيحة والمستندة حول الإسلام، تاريخه، نصوصه، وتاريخه اللغوي للدارسين والباحثين في جميع أنحاء العالم.", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.", card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.", card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.", aboutTitle: "رؤيتنا ورسالتنا", aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.", quote: '"خَيرُكُم مَن تَعَلَّمَ القُرآنَ وعَلَّمَهُ."', auth: "— صحيح البخاري", home: "الرئيسية", about: "حول الموقع", lessons: "الدروس", contact: "اتصل بنا", readM: "اقرأ المزيد &rarr;", contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة", 
-                authTitle: "نبذة عن المؤسس: نصر ظهور الندوي", 
-                authBio: "تلقى تعليمه في القرآن والحديث والفقه والأدب في معهد دار العلوم ندوة العلماء الشهير عالمياً بلكناؤ، وتخصص في علوم الحديث الشريف. عُيّن باحثاً ومحققاً في ندوة العلماء، وقدّم أطروحة علمية بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. تولى الخدمة التدريسية لعلوم النحو في دار العلوم ندوة العلماء، وهو حالياً باحث دكتوراه في جامعة لكناؤ.", 
-                footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام", sAr: "المقالات", sLe: "الأوراق البحثية"
+                title: "تعلم الإسلام", heroT: "الإسلام للجميع", heroD: "سد الفجوة بين الفكر الإسلامي الكلاسيكي والوصول الرقمي الحديث مع تحليل علمي شامل من المصادر الأصلية.", heroBtn: "ابدأ التعلم", welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مكرسة لنشر المعرفة الأصيلة عن الإسلام وتاريخه ونصوصه وتقاليده اللغوية للدارسين والباحثين في جميع أنحاء العالم.", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الحقيقي لجمع القرآن الكريم والسنة النبوية وحفظهما، وتسليط الضوء على التضحيات المنقطعة النظير للعلماء المسلمين في حماية الحديث.", card2T: "اللغة العربية وآدابها", card2D: "تعمق في التاريخ الشامل للغة العربية وآدابها من أصولها قبل الإسلام، مراراً بالعصور الكلاسيكية، وصولاً إلى العصر الحديث.", card3T: "التاريخ والسيرة", card3D: "استلهم من الفصول المضيئة من السيرة النبوية وحياة الصحابة، مع استكشاف الحضارة الإسلامية والإرث العلمي لعلماء المسلمين.", aboutTitle: "عن رسالتنا", aboutDesc: "تركز رسالتنا على سد الفجوة بين العقل الإسلامي الكلاسيكي والوصول الرقمي الحديث. نحن نركز على البحث الأكاديمي، وحفظ المخطوطات، والتطور اللغوي لتقديم معرفة موثقة قائمة على النصوص.", quote: '"خَيرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ."', auth: "— صحيح البخاري", home: "الرئيسية", about: "من نحن", lessons: "الدروس", contact: "اتصل بنا", readM: "اقرأ المزيد &rarr;", contactTitle: "نموذج الاتصال", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة", 
+                authTitle: "نبذة عن المؤسس: نصر ظہور ندوی", 
+                authBio: "تلقى تعليمه في القرآن والحديث والفقه والأدب العربي في المعهد العالمي الشهير، دار العلوم ندوة العلماء، لكناو. تخصص في علوم الحديث وتم تعيينه باحثاً وزميلاً في ندوة العلماء، وقدم أطروحة علمية بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. عمل مدرساً للنحو العربي في دار العلوم ندوة العلماء. وهو حالياً باحث دكتوراه في جامعة لكناو.", 
+                footer: "&copy; 2026 تعلم الإسلام. جميع الحقوق محفوظة.", pPolicy: "سياسة الخصوصية", tTerms: "شروط الاستخدام", sAr: "المقالات", sLe: "الدروس الأكاديمية"
             }
         };
 
@@ -224,39 +252,78 @@
             document.getElementById('main-footer').innerHTML = translations[lang].footer; document.getElementById('link-privacy').innerText = translations[lang].pPolicy; document.getElementById('link-terms').innerText = translations[lang].tTerms;
             document.getElementById('rm-les1').innerHTML = translations[lang].readM; document.getElementById('rm-les2').innerHTML = translations[lang].readM; document.getElementById('rm-les3').innerHTML = translations[lang].readM;
 
-            // یہ فنکشن لنکس کو ہمیشہ ہوم پیج پر برقرار رکھتا ہے
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         }
         
-        // پیج لوڈ ہوتے ہی ڈیفالٹ لنک اوپن کرنے کا فنکشن
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         });
-  </script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD95oGx9pyUHk_KYTVPDAU82GBv6P7-NtM",
-    authDomain: "learn-islam-8a7b4.firebaseapp.com",
-    projectId: "learn-islam-8a7b4",
-    storageBucket: "learn-islam-8a7b4.firebasestorage.app",
-    messagingSenderId: "203566828658",
-    appId: "1:203566828658:web:6007f219722821283ec6eb",
-    measurementId: "G-T7RM1VBG58"
-  };
+        // ==========================================
+        // فائر بیس کنفیگریشن اور ایکٹیویشن
+        // ==========================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyD95oGx9pyUHk_KYTVPDAU82GBv6P7-NtM",
+            authDomain: "learn-islam-8a7b4.firebaseapp.com",
+            projectId: "learn-islam-8a7b4",
+            storageBucket: "learn-islam-8a7b4.firebasestorage.app",
+            messagingSenderId: "203566828658",
+            appId: "1:203566828658:web:6007f219722821283ec6eb",
+            measurementId: "G-T7RM1VBG58"
+        };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // لاگ ان منطق (Logic)
+        const emailInput = document.getElementById('auth-email');
+        const passwordInput = document.getElementById('auth-password');
+        const loginBtn = document.getElementById('btn-login');
+        const signupBtn = document.getElementById('btn-signup');
+        const authMessage = document.getElementById('auth-message');
+
+        // اکاؤنٹ بنانے کا کوڈ
+        signupBtn.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            if(!email || !password) {
+                authMessage.style.color = "red";
+                authMessage.innerText = "براہ کرم ای میل اور پاس ورڈ دونوں لکھیں!";
+                return;
+            }
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    authMessage.style.color = "green";
+                    authMessage.innerText = "اکاؤنٹ کامیابی سے بن گیا ہے اور آپ لاگ ان ہو چکے ہیں!";
+                })
+                .catch((error) => {
+                    authMessage.style.color = "red";
+                    authMessage.innerText = "خرابی: " + error.message;
+                });
+        });
+
+        // لاگ ان کا کوڈ
+        loginBtn.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            if(!email || !password) {
+                authMessage.style.color = "red";
+                authMessage.innerText = "براہ کرم ای میل اور پاس ورڈ لکھیں!";
+                return;
+            }
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    authMessage.style.color = "green";
+                    authMessage.innerText = "خوش آمدید! آپ کامیابی سے لاگ ان ہو چکے ہیں۔";
+                })
+                .catch((error) => {
+                    authMessage.style.color = "red";
+                    authMessage.innerText = "خرابی: " + error.message;
+                });
+        });
+    </script>
 </body>
 </html>
