@@ -234,6 +234,29 @@
             document.getElementById('rm-les1').setAttribute('href', 'https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing');
             document.getElementById('rm-les1').setAttribute('target', '_blank');
         });
-    </script>
+  </script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD95oGx9pyUHk_KYTVPDAU82GBv6P7-NtM",
+    authDomain: "learn-islam-8a7b4.firebaseapp.com",
+    projectId: "learn-islam-8a7b4",
+    storageBucket: "learn-islam-8a7b4.firebasestorage.app",
+    messagingSenderId: "203566828658",
+    appId: "1:203566828658:web:6007f219722821283ec6eb",
+    measurementId: "G-T7RM1VBG58"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
