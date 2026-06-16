@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="main-title">Learn Islam - Lessons</title>
+    <style>
+        :root { --bg-color: #f8fafc; --text-color: #1e293b; --primary-color: #1b4d3e; --accent-color: #c5a059; --card-bg: #ffffff; --nav-bg: #ffffff; --border-color: #e2e8f0; }
+        [data-theme="dark"] { --bg-color: #0f172a; --text-color: #f1f5f9; --primary-color: #334155; --accent-color: #f59e0b; --card-bg: #1e293b; --nav-bg: #1e293b; --border-color: #334155; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; transition: background-color 0.3s, color 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
+        header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; }
+        .islamic-logo-badge { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid var(--accent-color); border-radius: 8px; background-color: rgba(27, 77, 62, 0.03); margin-bottom: 15px; text-decoration: none; }
+        .ayis-text { font-size: 26px; font-weight: bold; color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 4px; }
+        .translation-subtext { font-size: 14px; font-weight: 600; color: var(--text-color); opacity: 0.85; font-style: italic; }
+        .nav-menu-box { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
+        nav { display: flex; gap: 5px; }
+        nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
+        nav a:hover { background-color: rgba(27, 77, 62, 0.05); }
+        nav a.active-nav { background-color: var(--primary-color); color: white !important; }
+        nav a.nav-login-btn { border: 1px solid var(--accent-color); color: var(--accent-color); }
+        .controls { display: flex; gap: 8px; }
+        .controls button { padding: 8px 14px; cursor: pointer; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); border-radius: 6px; font-weight: 600; }
+        .controls button.active { background-color: var(--primary-color); color: white; }
+        .main-content { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .search-box { margin-bottom: 40px; }
+        .search-box input { width: 100%; padding: 14px 24px; border: 1px solid var(--border-color); background-color: var(--card-bg); color: var(--text-color); border-radius: 8px; font-size: 16px; }
+        .section-title { margin: 30px 0 25px; color: var(--primary-color); border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; font-size: 30px; font-weight: 700; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background-color: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { margin-bottom: 15px; color: var(--primary-color); font-size: 22px; }
+        .card p { color: #64748b; font-size: 15px; }
+        [data-theme="dark"] .card p { color: #94a3b8; }
+        .quote-section { background-color: var(--card-bg); border-left: 6px solid var(--primary-color); padding: 35px; margin: 50px 0; border-radius: 8px; border: 1px solid var(--border-color); }
+        .quote-text { font-size: 24px; font-style: italic; color: var(--primary-color); text-align: center; font-weight: 600; }
+        .quote-auth { text-align: right; margin-top: 15px; font-weight: bold; color: var(--accent-color); }
+        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 35px 20px; margin-top: 80px; }
+        @media (max-width: 768px) { .nav-menu-box { flex-direction: column-reverse; gap: 15px; } nav { flex-wrap: wrap; justify-content: center; } }
+        [lang="ur"] *, [lang="ar"] * { direction: rtl; text-align: right; }
+        [lang="ur"] .nav-menu-box, [lang="ar"] .nav-menu-box { flex-direction: row-reverse; }
+        [lang="ur"] .quote-section, [lang="ar"] .quote-section { border-left: none; border-right: 6px solid var(--primary-color); }
+        [lang="ur"] .quote-auth, [lang="ar"] .quote-auth { text-align: left; }
+    </style>
+</head>
+<body id="content-body" lang="en">
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="islamic-logo-badge">
+                <span class="ayis-text">إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ</span>
+                <span class="translation-subtext" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
+            </a>
+            <div class="nav-menu-box">
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="lessons.html" class="active-nav">Lessons</a>
+                    <a href="about.html">About</a>
+                    <a href="login.html" class="nav-login-btn" id="nav-login-text">Login</a>
+                </nav>
+                <div class="controls">
+                    <button id="btn-en" class="active" onclick="changeLanguage('en')">EN</button>
+                    <button id="btn-ur" onclick="changeLanguage('ur')">اُردو</button>
+                    <button id="btn-ar" onclick="changeLanguage('ar')">العربية</button>
+                    <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="search-box">
+            <input type="text" id="search-input" onkeyup="searchSite()" placeholder="Search lessons...">
+        </div>
+
+        <h2 class="section-title" id="lessons-title">Latest Lessons</h2>
+        <div class="grid">
+            <div class="card search-item">
+                <div><h3 id="les-title-1">Quran & Sunnah</h3><p id="les-desc-1">Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.</p></div>
+                <a href="https://drive.google.com/file/d/1CpHGJoV6pxYf6GMqns_4g45u2F8_c8KO/view?usp=sharing" id="rm-les1" target="_blank" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold;">Read More &rarr;</a>
+            </div>
+            <div class="card search-item">
+                <div><h3 id="les-title-2">Arabic Language & Literature</h3><p id="les-desc-2">Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.</p></div>
+                <a href="#" id="rm-les2" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold;">Read More &rarr;</a>
+            </div>
+            <div class="card search-item">
+                <div><h3 id="les-title-3">History & Biography</h3><p id="les-desc-3">Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.</p></div>
+                <a href="#" id="rm-les3" style="color: var(--accent-color); text-decoration: none; margin-top: 25px; font-weight: bold;">Read More &rarr;</a>
+            </div>
+        </div>
+
+        <div class="quote-section search-item">
+            <div id="quote-text" class="quote-text">"The best among you are those who learn the Quran and teach it."</div>
+            <div id="quote-auth" class="quote-auth">— Sahih al-Bukhari</div>
+        </div>
+    </main>
+
+    <footer>
+        <p id="main-footer">&copy; 2026 Learn Islam. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function searchSite() { let input = document.getElementById('search-input').value.toLowerCase(); let items = document.getElementsByClassName('search-item'); for (let i = 0; i < items.length; i++) { if (!items[i].innerHTML.toLowerCase().includes(input)) { items[i].style.display = "none"; } else { items[i].style.display = "block"; } } }
+        function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
+        const translations = {
+            en: { title: "Learn Islam - Lessons", logoSub: "Indeed, the religion in the sight of Allah is Islam", lesTitle: "Latest Lessons", card1T: "Quran & Sunnah", card1D: "Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.", card2T: "Arabic Language & Literature", card2D: "Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.", card3T: "History & Biography", card3D: "Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.", quote: '"The best among you are those who learn the Quran and teach it."', auth: "— Sahih al-Bukhari", readM: "Read More &rarr;", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
+            ur: { title: "اسلام سیکھیں - تعلیمی دروس", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", quote: '"تم میں سے بہترین شخص وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔"', auth: "— صحیح البخاری", readM: "مطالعہ کریں &rarr;", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
+            ar: { title: "تعلّم الإسلام - الدروس", logoSub: "", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.", card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.", card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.", quote: '"خَيرُكُم مَن تَعَلَّمَ القُرآنَ وعَلَّمَهُ."', auth: "— صحيح البخاري", readM: "اقرأ المزيد &rarr;", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
+        };
+        function changeLanguage(lang) {
+            document.getElementById('content-body').setAttribute('lang', lang);
+            document.getElementById('btn-en').className = (lang === 'en') ? 'active' : ''; document.getElementById('btn-ur').className = (lang === 'ur') ? 'active' : ''; document.getElementById('btn-ar').className = (lang === 'ar') ? 'active' : '';
+            document.getElementById('main-title').innerText = translations[lang].title; document.getElementById('lessons-title').innerText = translations[lang].lesTitle;
+            document.getElementById('les-title-1').innerText = translations[lang].card1T; document.getElementById('les-desc-1').innerText = translations[lang].card1D; document.getElementById('les-title-2').innerText = translations[lang].card2T; document.getElementById('les-desc-2').innerText = translations[lang].card2D; document.getElementById('les-title-3').innerText = translations[lang].card3T; document.getElementById('les-desc-3').innerText = translations[lang].card3D;
+            document.getElementById('quote-text').innerText = translations[lang].quote; document.getElementById('quote-auth').innerText = translations[lang].auth;
+            document.getElementById('nav-login-text').innerText = translations[lang].mainLoginBtn;
+            const subtextElem = document.getElementById('main-logo-subtext');
+            if(lang === 'ar') { subtextElem.style.display = 'none'; } else { subtextElem.style.display = 'block'; subtextElem.innerText = translations[lang].logoSub; }
+            document.getElementById('main-footer').innerHTML = translations[lang].footer;
+            document.getElementById('rm-les1').innerHTML = translations[lang].readM; document.getElementById('rm-les2').innerHTML = translations[lang].readM; document.getElementById('rm-les3').innerHTML = translations[lang].readM;
+        }
+    </script>
+</body>
+</html>
