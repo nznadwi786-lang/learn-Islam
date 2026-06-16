@@ -11,9 +11,15 @@
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
         header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; }
-        .islamic-logo-badge { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid var(--accent-color); border-radius: 8px; background-color: rgba(27, 77, 62, 0.03); margin-bottom: 15px; text-decoration: none; }
-        .ayis-text { font-size: 26px; font-weight: bold; color: var(--primary-color); font-family: 'Amiri', serif; margin-bottom: 4px; }
-        .translation-subtext { font-size: 14px; font-weight: 600; color: var(--text-color); opacity: 0.85; font-style: italic; }
+        
+        .islamic-brand-logo { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; margin-bottom: 15px; }
+        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
+        .logo-seal-text { color: var(--accent-color); font-size: 14px; font-weight: bold; text-align: center; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
+        .logo-brand-name { font-size: 28px; font-weight: 800; color: var(--primary-color); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+        .logo-translation { font-size: 13px; font-weight: 600; color: #64748b; font-style: italic; max-width: 400px; }
+        [data-theme="dark"] .logo-brand-name { color: #f1f5f9; }
+        [data-theme="dark"] .logo-translation { color: #94a3b8; }
+
         .nav-menu-box { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
         nav { display: flex; gap: 5px; }
         nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
@@ -40,9 +46,12 @@
 <body id="content-body" lang="en">
     <header>
         <div class="nav-container">
-            <a href="index.html" class="islamic-logo-badge">
-                <span class="ayis-text">إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ</span>
-                <span class="translation-subtext" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
+            <a href="index.html" class="islamic-brand-logo">
+                <div class="logo-seal">
+                    <div class="logo-seal-text">إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ</div>
+                </div>
+                <span class="logo-brand-name" id="main-brand-name">Learn Islam</span>
+                <span class="logo-translation" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
             </a>
             <div class="nav-menu-box">
                 <nav>
@@ -88,9 +97,9 @@
     <script>
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
         const translations = {
-            en: { title: "Learn Islam - About Us", logoSub: "Indeed, the religion in the sight of Allah is Islam", aboutTitle: "About Our Mission", aboutDesc: "Our mission is to bridge the gap between classical Islamic intellect and modern digital access. We focus on academic research, manuscript preservation, and linguistic evolution to provide verified, text-based knowledge to globally active academic minds.", authTitle: "About the Founder: Nasar Zahoor Nadwi", authBio: "Educated in Quran, Hadith, Fiqh, and Arabic Literature at the world-renowned institute, Darul Uloom Nadwatul Ulama, Lucknow. Specialized in Hadith Sciences and was appointed as a Researcher and Fellow at Nadwatul Ulama, presenting a scholarly thesis titled 'Efforts of Orientalists in Sunnah and its Sciences: Positive and Negative Aspects'. Served as a Lecturer of Arabic Grammar (Nahu) at Darul Uloom Nadwatul Ulama. Currently a Ph.D. Scholar at Lucknow University.", contactTitle: "Contact Us", lblName: "Full Name", lblEmail: "Email Address", lblMsg: "Your Message", btnSubmit: "Send Message", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
-            ur: { title: "اسلام سیکھیں - تعارف", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", authTitle: "بانی کا تعارف: نصر ظہور ندوی", authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جھود المستشرقین فی السنة وعلومها سلبا و ايجابا' پیش کیا۔ دارالعلوم ندوۃ العلماء میں علوم نحو کی تدریسی خدمت انجام دی اور فی الحال لکھنؤ یونیورسٹی میں پی ایچ ڈی اسکالر ہیں۔", contactTitle: "رابطہ فارم", lblName: "نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
-            ar: { title: "تعلّم الإسلام - من نحن", logoSub: "", aboutTitle: "رؤيتنا ورسالتنا", aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.", authTitle: "نبذة عن المؤسس: نصر ظهور الندوي", authBio: "تلقى تعليمه في القرآن والحديث والفقه والأدب في معهد دار العلوم ندوة العلماء الشهير عالمياً بلكناؤ، وتخصص في علوم الحديث الشريف. عُيّن باحثاً ومحققاً في ندوة العلماء، وقدّم أطروحة علمية بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. تولى الخدمة التدريسية لعلوم النحو في دار العلوم ندوة العلماء، وهو حالياً باحث دكتوراه في جامعة لكناؤ.", contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
+            en: { title: "Learn Islam - About Us", brandName: "Learn Islam", logoSub: "Indeed, the religion in the sight of Allah is Islam", aboutTitle: "About Our Mission", aboutDesc: "Our mission is to bridge the gap between classical Islamic intellect and modern digital access. We focus on academic research, manuscript preservation, and linguistic evolution to provide verified, text-based knowledge to globally active academic minds.", authTitle: "About the Founder: Nasar Zahoor Nadwi", authBio: "Educated in Quran, Hadith, Fiqh, and Arabic Literature at the world-renowned institute, Darul Uloom Nadwatul Ulama, Lucknow. Specialized in Hadith Sciences and was appointed as a Researcher and Fellow at Nadwatul Ulama, presenting a scholarly thesis titled 'Efforts of Orientalists in Sunnah and its Sciences: Positive and Negative Aspects'. Served as a Lecturer of Arabic Grammar (Nahu) at Darul Uloom Nadwatul Ulama. Currently a Ph.D. Scholar at Lucknow University.", contactTitle: "Contact Us", lblName: "Full Name", lblEmail: "Email Address", lblMsg: "Your Message", btnSubmit: "Send Message", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
+            ur: { title: "اسلام سیکھیں - تعارف", brandName: "اسلام سیکھیں", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", aboutTitle: "ہمارا مقصد", aboutDesc: "ہمارا مقصد اسلام کی صحیح، مستند اور محقق معلومات جدید ذرائع سے تمام انسانیت تک پہنچانا ہے، ہم علمی تحقیق اور اصل مصادر و مراجع کو آپ کے سامنے پیش کرتے ہیں تاکہ آپ کسی بھی غلط فہمی اور افواہ کے بجائے اسلامی تعلیمات کو ان کے اصل مصادر و مآخذ سے سمجھ سکیں۔", authTitle: "بانی کا تعارف: نصر ظہور ندوی", authBio: "عالمی شہرت یافتہ ادارہ دارالعلوم ندوۃ العلماء لکھنؤ سے قرآن و حدیث اور فقہ و ادب کی تعلیم حاصل کی، علوم حدیث میں اختصاص کیا، ندوۃ العلماء میں بحیثیت محقق و باحث انتخاب ہوا، اور ایک علمی و تحقیقی مقالہ بعنوان 'جھود المستشرقین فی السنة وعلومها سلبا و ايجابا' پیش کیا۔ دارالعلوم ندوۃ العلماء میں علوم نحو کی تدریسی خدمت انجام دی اور فی الحال لکھنؤ یونیورسٹی میں پی ایچ ڈی اسکالر ہیں۔", contactTitle: "رابطہ فارم", lblName: "نام", lblEmail: "ای میل ایڈریس", lblMsg: "آپ کا پیغام", btnSubmit: "پیغام بھیجیں", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
+            ar: { title: "تعلّم الإسلام - من نحن", brandName: "تعلّم الإسلام", logoSub: "إن الدين عند الله الإسلام", aboutTitle: "رؤيتنا ورسالتنا", aboutDesc: "رسالتنا هي سد الفجوة بين الفكر الإسلامي الأصيل ووسائل الوصول الرقمية الحديثة. نحن نركز على البحث الأكاديمي، وتحقيق المخطوطات، والتطور اللغوي لتقديم معرفة موثقة ومبنية على النصوص للباحثين في جميع أنحاء العالم.", authTitle: "نبذة عن المؤسس: نصر ظهور الندوي", authBio: "تلقى تعليمه في القرآن والحديث والفقه والأدب في معهد دار العلوم ندوة العلماء الشهير عالمياً بلكناؤ، وتخصص في علوم الحديث الشريف. عُيّن باحثاً ومحققاً في ندوة العلماء، وقدّم أطروحة علمية بعنوان 'جهود المستشرقين في السنة وعلومها سلباً وإيجاباً'. تولى الخدمة التدريسية لعلوم النحو في دار العلوم ندوة العلماء، وهو حالياً باحث دكتوراه في جامعة لكناؤ.", contactTitle: "اتصل بنا", lblName: "الاسم الكامل", lblEmail: "البريد الإلكتروني", lblMsg: "رسالتك", btnSubmit: "إرسال الرسالة", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
         };
         function changeLanguage(lang) {
             document.getElementById('content-body').setAttribute('lang', lang);
@@ -98,8 +107,10 @@
             document.getElementById('main-title').innerText = translations[lang].title; document.getElementById('about-title').innerText = translations[lang].aboutTitle; document.getElementById('about-desc').innerText = translations[lang].aboutDesc; document.getElementById('author-title').innerText = translations[lang].authTitle; document.getElementById('author-bio').innerText = translations[lang].authBio;
             document.getElementById('contact-title').innerText = translations[lang].contactTitle; document.getElementById('lbl-name').innerText = translations[lang].lblName; document.getElementById('lbl-email').innerText = translations[lang].lblEmail; document.getElementById('lbl-msg').innerText = translations[lang].lblMsg; document.getElementById('btn-submit').innerText = translations[lang].btnSubmit;
             document.getElementById('nav-login-text').innerText = translations[lang].mainLoginBtn;
-            const subtextElem = document.getElementById('main-logo-subtext');
-            if(lang === 'ar') { subtextElem.style.display = 'none'; } else { subtextElem.style.display = 'block'; subtextElem.innerText = translations[lang].logoSub; }
+            
+            document.getElementById('main-brand-name').innerText = translations[lang].brandName;
+            document.getElementById('main-logo-subtext').innerText = translations[lang].logoSub;
+            
             document.getElementById('main-footer').innerHTML = translations[lang].footer;
         }
     </script>
