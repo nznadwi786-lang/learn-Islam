@@ -11,9 +11,16 @@
         body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; }
         header { background-color: var(--nav-bg); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); width: 100%; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; }
-        .islamic-logo-badge { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid var(--accent-color); border-radius: 8px; background-color: rgba(27, 77, 62, 0.03); margin-bottom: 15px; text-decoration: none; }
-        .ayis-text { font-size: 26px; font-weight: bold; color: var(--primary-color); font-family: 'Traditional Arabic', 'Amiri', Georgia, serif; margin-bottom: 4px; }
-        .translation-subtext { font-size: 14px; font-weight: 600; color: var(--text-color); opacity: 0.85; font-style: italic; }
+        
+        /* نیا پروفیشنل اسلامی لوگو مہر ڈیزائن */
+        .islamic-brand-logo { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; margin-bottom: 15px; }
+        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
+        .logo-seal-text { color: var(--accent-color); font-size: 14px; font-weight: bold; text-align: center; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
+        .logo-brand-name { font-size: 28px; font-weight: 800; color: var(--primary-color); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+        .logo-translation { font-size: 13px; font-weight: 600; color: #64748b; font-style: italic; max-width: 400px; }
+        [data-theme="dark"] .logo-brand-name { color: #f1f5f9; }
+        [data-theme="dark"] .logo-translation { color: #94a3b8; }
+
         .nav-menu-box { display: flex; justify-content: space-between; align-items: center; width: 100%; border-top: 1px solid var(--border-color); padding-top: 15px; }
         nav { display: flex; gap: 5px; align-items: center; }
         nav a { color: var(--text-color); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; }
@@ -48,9 +55,13 @@
 <body id="content-body" lang="en">
     <header>
         <div class="nav-container">
-            <a href="index.html" class="islamic-logo-badge">
-                <span class="ayis-text">إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ</span>
-                <span class="translation-subtext" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
+            <!-- نیا باوقار لوگو اور واضح برانڈ نام -->
+            <a href="index.html" class="islamic-brand-logo">
+                <div class="logo-seal">
+                    <div class="logo-seal-text">إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ</div>
+                </div>
+                <span class="logo-brand-name" id="main-brand-name">Learn Islam</span>
+                <span class="logo-translation" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
             </a>
             <div class="nav-menu-box">
                 <nav>
@@ -98,17 +109,19 @@
     <script>
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
         const translations = {
-            en: { title: "Learn Islam - Home", logoSub: "Indeed, the religion in the sight of Allah is Islam", heroT: "Islam for everyone", heroD: "Bridging the gap between classical Islamic intellect and modern digital access with comprehensive scholarly analysis.", heroBtn: "Start Learning", welcomeTitle: "Welcome to Our Website", welcomeDesc: "This platform is dedicated to sharing authentic knowledge about Islam, its history, texts, and linguistic traditions for learners and researchers around the world.", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", sAr: "Articles", sLe: "Academic Lessons", mainLoginBtn: "Login" },
-            ur: { title: "اسلام سیکھیں - ہوم پیج", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", sAr: "مضامین", sLe: "تعلیمی اسباق", mainLoginBtn: "لاگ ان" },
-            ar: { title: "تعلّم الإسلام - الرئيسية", logoSub: "", heroT: "الإسلام للجميع", heroD: "جسر الفجوة بين الفكر الإسلامي الأصيل والوصول الرقمي الحديث من خلال التحليل العلمي الشامل والموثق.", heroBtn: "ابدأ التعلم", welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مخصصة لمشاركة المعارف الصحيحة والمستندة حول الإسلام، تاريخه، نصوصه، وتاريخه اللغوي للدارسين والباحثين في جميع أنحاء العالم.", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", sAr: "المقالات", sLe: "الدروس الأكاديمية", mainLoginBtn: "تسجيل دخول" }
+            en: { title: "Learn Islam - Home", brandName: "Learn Islam", logoSub: "Indeed, the religion in the sight of Allah is Islam", heroT: "Islam for everyone", heroD: "Bridging the gap between classical Islamic intellect and modern digital access with comprehensive scholarly analysis.", heroBtn: "Start Learning", welcomeTitle: "Welcome to Our Website", welcomeDesc: "This platform is dedicated to sharing authentic knowledge about Islam, its history, texts, and linguistic traditions for learners and researchers around the world.", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", sAr: "Articles", sLe: "Academic Lessons", mainLoginBtn: "Login" },
+            ur: { title: "اسلام سیکھیں - ہوم پیج", brandName: "اسلام سیکھیں", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", heroT: "اسلام سب کے لیے", heroD: "جامع علمی اور مستند ترین مآخذ سے اسلامی تعلیمات کو پوری انسانیت تک پہنچانا اور جدید شبہات کا ازالہ کرنا۔", heroBtn: "تعلیم کا آغاز کریں", welcomeTitle: "ہماری ویب سائٹ پر خوش آمدید", welcomeDesc: "یہ پلیٹ فارم تمام طلبہ علم و دانش اور معرفت دین کے متلاشی افراد کے لیے اسلام، اس کی تاریخ، اور عربی زبان و ادب کی مستند محقق معلومات فراہم کرنے کے لیے وقف ہے۔", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", sAr: "مضامین", sLe: "تعلیمی اسباق", mainLoginBtn: "لاگ ان" },
+            ar: { title: "تعلّم الإسلام - الرئيسية", brandName: "تعلّم الإسلام", logoSub: "إن الدين عند الله الإسلام", heroT: "الإslam للجميع", heroD: "جسر الفجوة بين الفكر الإسلامي الأصيل والوصول الرقمي الحديث من خلال التحليل العلمي الشامل والموثق.", heroBtn: "ابدأ التعلم", welcomeTitle: "مرحباً بكم في موقعنا", welcomeDesc: "هذه المنصة مخصصة لمشاركة المعارف الصحيحة والمستندة حول الإسلام، تاريخه، نصوصه، وتاريخه اللغوي للدارسين والباحثين في جميع أنحاء العالم.", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", sAr: "المقالات", sLe: "الدروس الأكاديمية", mainLoginBtn: "تسجيل دخول" }
         };
         function changeLanguage(lang) {
             document.getElementById('content-body').setAttribute('lang', lang);
             document.getElementById('btn-en').className = (lang === 'en') ? 'active' : ''; document.getElementById('btn-ur').className = (lang === 'ur') ? 'active' : ''; document.getElementById('btn-ar').className = (lang === 'ar') ? 'active' : '';
             document.getElementById('main-title').innerText = translations[lang].title; document.getElementById('hero-title').innerText = translations[lang].heroT; document.getElementById('hero-desc').innerText = translations[lang].heroD; document.getElementById('hero-btn').innerText = translations[lang].heroBtn; document.getElementById('welcome-title').innerText = translations[lang].welcomeTitle; document.getElementById('welcome-desc').innerText = translations[lang].welcomeDesc;
             document.getElementById('nav-login-text').innerText = translations[lang].mainLoginBtn;
-            const subtextElem = document.getElementById('main-logo-subtext');
-            if(lang === 'ar') { subtextElem.style.display = 'none'; } else { subtextElem.style.display = 'block'; subtextElem.innerText = translations[lang].logoSub; }
+            
+            document.getElementById('main-brand-name').innerText = translations[lang].brandName;
+            document.getElementById('main-logo-subtext').innerText = translations[lang].logoSub;
+            
             document.getElementById('stat-articles').innerText = translations[lang].sAr; document.getElementById('stat-lessons').innerText = translations[lang].sLe; document.getElementById('main-footer').innerHTML = translations[lang].footer;
         }
     </script>
