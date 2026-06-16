@@ -13,12 +13,11 @@
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; }
         
         .islamic-brand-logo { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; margin-bottom: 15px; }
-        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
-        .logo-seal-text { color: var(--accent-color); font-size: 14px; font-weight: bold; text-align: center; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
+        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; padding: 15px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
+        .logo-seal-text { color: var(--accent-color); font-size: 13px; font-weight: bold; text-align: center; line-height: 1.4; }
+        .logo-seal-text.arabic-style { font-size: 16px; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
         .logo-brand-name { font-size: 28px; font-weight: 800; color: var(--primary-color); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-        .logo-translation { font-size: 13px; font-weight: 600; color: #64748b; font-style: italic; max-width: 400px; }
         [data-theme="dark"] .logo-brand-name { color: #f1f5f9; }
-        [data-theme="dark"] .logo-translation { color: #94a3b8; }
 
         .nav-menu-box { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
         nav { display: flex; gap: 5px; }
@@ -38,9 +37,6 @@
         .card h3 { margin-bottom: 15px; color: var(--primary-color); font-size: 22px; }
         .card p { color: #64748b; font-size: 15px; }
         [data-theme="dark"] .card p { color: #94a3b8; }
-        .quote-section { background-color: var(--card-bg); border-left: 6px solid var(--primary-color); padding: 35px; margin: 50px 0; border-radius: 8px; border: 1px solid var(--border-color); }
-        .quote-text { font-size: 24px; font-style: italic; color: var(--primary-color); text-align: center; font-weight: 600; }
-        .quote-auth { text-align: right; margin-top: 15px; font-weight: bold; color: var(--accent-color); }
         footer { background-color: var(--primary-color); color: white; text-align: center; padding: 35px 20px; margin-top: 80px; }
         @media (max-width: 768px) { .nav-menu-box { flex-direction: column-reverse; gap: 15px; } nav { flex-wrap: wrap; justify-content: center; } }
         [lang="ur"] *, [lang="ar"] * { direction: rtl; text-align: right; }
@@ -52,10 +48,9 @@
         <div class="nav-container">
             <a href="index.html" class="islamic-brand-logo">
                 <div class="logo-seal">
-                    <div class="logo-seal-text">إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ</div>
+                    <div id="main-seal-text" class="logo-seal-text">Indeed, the religion in the sight of Allah is Islam</div>
                 </div>
                 <span class="logo-brand-name" id="main-brand-name">Learn Islam</span>
-                <span class="logo-translation" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
             </a>
             <div class="nav-menu-box">
                 <nav>
@@ -104,9 +99,9 @@
         function searchSite() { let input = document.getElementById('search-input').value.toLowerCase(); let items = document.getElementsByClassName('search-item'); for (let i = 0; i < items.length; i++) { if (!items[i].innerHTML.toLowerCase().includes(input)) { items[i].style.display = "none"; } else { items[i].style.display = "block"; } } }
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
         const translations = {
-            en: { title: "Learn Islam - Lessons", brandName: "Learn Islam", logoSub: "Indeed, the religion in the sight of Allah is Islam", lesTitle: "Latest Lessons", card1T: "Quran & Sunnah", card1D: "Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.", card2T: "Arabic Language & Literature", card2D: "Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.", card3T: "History & Biography", card3D: "Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.", readM: "Read More &rarr;", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
-            ur: { title: "اسلام سیکھیں - تعلیمی دروس", brandName: "اسلام سیکھیں", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", readM: "مطالعہ کریں &rarr;", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
-            ar: { title: "تعلّم الإسلام - الدروس", brandName: "تعلّم الإسلام", logoSub: "إن الدين عند الله الإسلام", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.", card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.", card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.", readM: "اقرأ المزيد &rarr;", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
+            en: { title: "Learn Islam - Lessons", brandName: "Learn Islam", logoSealText: "Indeed, the religion in the sight of Allah is Islam", lesTitle: "Latest Lessons", card1T: "Quran & Sunnah", card1D: "Explore the authentic history of the compilation and preservation of the Holy Quran and Sunnah, highlighting the unparalleled sacrifices of Muslim scholars in safeguarding Hadith.", card2T: "Arabic Language & Literature", card2D: "Delve into the comprehensive history of Arabic language and literature from its pre-Islamic origins, through the classical eras, up to the contemporary period.", card3T: "History & Biography", card3D: "Draw inspiration from the illuminated chapters of Seerah and the lives of the Companions, while exploring Islamic civilization and the scholarly legacy of Muslim savants.", readM: "Read More &rarr;", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
+            ur: { title: "اسلام سیکھیں - تعلیمی دروس", brandName: "اسلام سیکھیں", logoSealText: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے", lesTitle: "تازہ ترین اسباق", card1T: "القرآن والسنۃ", card1D: "جمع و تدوینِ قرآن و سنت کی مستند تاریخ کا مطالعہ کریں، اور مفسرین و محدثینِ عظام کی ان بےمثال قربانیوں کو جانیں جو انہوں نے حفاظتِ حدیث اور روایت و درایت کے نظام کو قائم کرنے کے لیے پیش کیں۔", card2T: "عربی زبان و ادب", card2D: "عربی زبان و ادب کی از ابتدا تا الی یومنا ھذا مکمل اور جامع تاریخ کا جائزہ لیں۔ جاہلی دور، اسلامی و اموی عہد، عباسی و اندلسی ادوار سے لے کر عصرِ حاضر تک عربی نثر و نظم کے ارتقا اور لسانی اسرار کو سمجھیں۔", card3T: "تاریخ و سیر", card3D: "سیرت النبی ﷺ اور سیرتِ صحابہ کرام رضوان اللہ علیہم اجمعین کے روشن ابواب سے زندگی حاصل کریں، نیز اسلامی تہذیب و تمدن کی شاندار تاریخ اور نامور مسلم علماء کے گرانقدر علمی و تحقیقی کاموں کا علمی جائزہ لیں۔", readM: "مطالعہ کریں &rarr;", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
+            ar: { title: "تعلّم الإسلام - الدروس", brandName: "تعلّم الإسلام", logoSealText: "إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ", lesTitle: "أحدث الدروس", card1T: "القرآن والسنة", card1D: "استكشف التاريخ الموثق لجمع وتدوين القرآن الكريم والسنة النبوية، وسلّط الضوء على تضحيات علماء الأمة الفذة في صيانة الحديث الشريف وروايته.", card2T: "اللغة العربية وآدابها", card2D: "تعمّق في التاريخ الشامل للغة العربية وآدابها من العصر الجاهلي وصدر الإسلام، مروراً بالعصر العباسي والأندلسي، وصولاً إلى عصرنا الحاضر ونتاجها الأدبي واللغوي.", card3T: "التاريخ والسيرة", card3D: "استلهم الدروس من العهد النبوي العطر وسير الصحابة الكرام، واطلع على تاريخ الحضارة الإسلامية العريقة والإسهامات الأكاديمية لعلماء المسلمين الأعلام عبر العصور.", readM: "اقرأ المزيد &rarr;", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
         };
         function changeLanguage(lang) {
             document.getElementById('content-body').setAttribute('lang', lang);
@@ -116,7 +111,10 @@
             document.getElementById('nav-login-text').innerText = translations[lang].mainLoginBtn;
             
             document.getElementById('main-brand-name').innerText = translations[lang].brandName;
-            document.getElementById('main-logo-subtext').innerText = translations[lang].logoSub;
+            
+            const sealElem = document.getElementById('main-seal-text');
+            sealElem.innerHTML = translations[lang].logoSealText;
+            if(lang === 'ar') { sealElem.className = "logo-seal-text arabic-style"; } else { sealElem.className = "logo-seal-text"; }
             
             document.getElementById('main-footer').innerHTML = translations[lang].footer;
             document.getElementById('rm-les1').innerHTML = translations[lang].readM; document.getElementById('rm-les2').innerHTML = translations[lang].readM; document.getElementById('rm-les3').innerHTML = translations[lang].readM;
