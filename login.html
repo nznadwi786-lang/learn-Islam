@@ -13,12 +13,11 @@
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; }
         
         .islamic-brand-logo { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; margin-bottom: 15px; }
-        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; padding: 10px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
-        .logo-seal-text { color: var(--accent-color); font-size: 14px; font-weight: bold; text-align: center; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
+        .logo-seal { background: linear-gradient(135deg, #1b4d3e, #0f3026); border: 3px double var(--accent-color); border-radius: 50%; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; padding: 15px; box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2); margin-bottom: 10px; }
+        .logo-seal-text { color: var(--accent-color); font-size: 13px; font-weight: bold; text-align: center; line-height: 1.4; }
+        .logo-seal-text.arabic-style { font-size: 16px; font-family: 'Traditional Arabic', 'Amiri', serif; line-height: 1.2; direction: rtl; }
         .logo-brand-name { font-size: 28px; font-weight: 800; color: var(--primary-color); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-        .logo-translation { font-size: 13px; font-weight: 600; color: #64748b; font-style: italic; max-width: 400px; }
         [data-theme="dark"] .logo-brand-name { color: #f1f5f9; }
-        [data-theme="dark"] .logo-translation { color: #94a3b8; }
 
         .nav-menu-box { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; }
         nav { display: flex; gap: 5px; }
@@ -45,10 +44,9 @@
         <div class="nav-container">
             <a href="index.html" class="islamic-brand-logo">
                 <div class="logo-seal">
-                    <div class="logo-seal-text">إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ</div>
+                    <div id="main-seal-text" class="logo-seal-text">Indeed, the religion in the sight of Allah is Islam</div>
                 </div>
                 <span class="logo-brand-name" id="main-brand-name">Learn Islam</span>
-                <span class="logo-translation" id="main-logo-subtext">Indeed, the religion in the sight of Allah is Islam</span>
             </a>
             <div class="nav-menu-box">
                 <nav>
@@ -85,9 +83,9 @@
     <script>
         function toggleTheme() { const currentTheme = document.body.getAttribute('data-theme'); const btn = document.getElementById('theme-btn'); if (currentTheme === 'dark') { document.body.removeAttribute('data-theme'); btn.innerText = "🌙 Dark Mode"; } else { document.body.setAttribute('data-theme', 'dark'); btn.innerText = "☀️ Light Mode"; } }
         const translations = {
-            en: { title: "Learn Islam - Login", brandName: "Learn Islam", logoSub: "Indeed, the religion in the sight of Allah is Islam", loginT: "Student Login", lblUser: "Username or Email", lblPass: "Password", btnLog: "Login", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
-            ur: { title: "اسلام سیکھیں - لاگ ان", brandName: "اسلام سیکھیں", logoSub: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے۔", loginT: "طلبہ کے لیے لاگ ان فارم", lblUser: "صارف کا نام یا ای میل", lblPass: "پاس ورڈ", btnLog: "لاگ ان کریں", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
-            ar: { title: "تعلّم الإسلام - تسجيل الدخول", brandName: "تعلّم الإسلام", logoSub: "إن الدين عند الله الإسلام", loginT: "تسجيل دخول الطلاب", lblUser: "اسم المستخدم أو البريد الإلكتروني", lblPass: "كلمة المرور", btnLog: "تسجيل الدخول", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
+            en: { title: "Learn Islam - Login", brandName: "Learn Islam", logoSealText: "Indeed, the religion in the sight of Allah is Islam", loginT: "Student Login", lblUser: "Username or Email", lblPass: "Password", btnLog: "Login", footer: "&copy; 2026 Learn Islam. All Rights Reserved.", mainLoginBtn: "Login" },
+            ur: { title: "اسلام سیکھیں - لاگ ان", brandName: "اسلام سیکھیں", logoSealText: "بلاشبہ دین اللہ کے نزدیک صرف اسلام ہی ہے", loginT: "طلبہ کے لیے لاگ ان فارم", lblUser: "صارف کا نام یا ای میل", lblPass: "پاس ورڈ", btnLog: "لاگ ان کریں", footer: "&copy; 2026 اسلام سیکھیں— جملہ حقوق محفوظ ہیں۔", mainLoginBtn: "لاگ ان" },
+            ar: { title: "تعلّم الإسلام - تسجيل الدخول", brandName: "تعلّم الإسلام", logoSealText: "إِنَّ الدِّينَ<br>عِندَ اللَّهِ<br>الإِسْلَامُ", loginT: "تسجيل دخول الطلاب", lblUser: "اسم المستخدم أو البريد الإلكتروني", lblPass: "كلمة المرور", btnLog: "تسجيل الدخول", footer: "&copy; 2026 تعلّم الإسلام. جميع الحقوق محفوظة.", mainLoginBtn: "تسجيل دخول" }
         };
         function changeLanguage(lang) {
             document.getElementById('content-body').setAttribute('lang', lang);
@@ -95,7 +93,10 @@
             document.getElementById('main-title').innerText = translations[lang].title; document.getElementById('login-title').innerText = translations[lang].loginT; document.getElementById('lbl-username').innerText = translations[lang].lblUser; document.getElementById('lbl-password').innerText = translations[lang].lblPass; document.getElementById('btn-login').innerText = translations[lang].btnLog; document.getElementById('nav-login-text').innerText = translations[lang].mainLoginBtn;
             
             document.getElementById('main-brand-name').innerText = translations[lang].brandName;
-            document.getElementById('main-logo-subtext').innerText = translations[lang].logoSub;
+            
+            const sealElem = document.getElementById('main-seal-text');
+            sealElem.innerHTML = translations[lang].logoSealText;
+            if(lang === 'ar') { sealElem.className = "logo-seal-text arabic-style"; } else { sealElem.className = "logo-seal-text"; }
             
             document.getElementById('main-footer').innerHTML = translations[lang].footer;
         }
